@@ -1,0 +1,40 @@
+# ======================
+# Python virtual environment
+# ======================
+.analysis/
+
+# ======================
+# Python bytecode / cache
+# ======================
+__pycache__/
+*.py[cod]
+
+# ======================
+# Build artifacts (C/C++)
+# ======================
+*.o
+*.a
+*.so
+*.d
+*.out
+*.exe
+
+/build/
+bin/
+
+# ======================
+# Editor / OS junk
+# ======================
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# Logs
+# ======================
+*.log
