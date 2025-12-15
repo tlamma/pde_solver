@@ -13,10 +13,9 @@ plt.legend()
 plt.show()
 
 plt.figure()
-plt.scatter(data[:, 0], data[:, 1], c=frame_time, cmap='viridis')
+plt.scatter(data[:, 0], data[:, 1])
 plt.xlabel('x')
 plt.ylabel('y')
-plt.colorbar(label='Time')
 plt.show()
 
 print(data.shape)

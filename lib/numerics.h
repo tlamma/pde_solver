@@ -9,8 +9,12 @@ const static float MAX_STEP_SIZE = 1.0f; //Cannot be larger than 1.0 to ensure s
 
 namespace numerics{
 
-vector newton_method(float (*a_function)(const vector& ), const vector& initial_guess);
+//TO ADD: 
+// - LINEAR SYSTEM SOLVER (GAUSSIAN ELIMINATION WITH PARTIAL PIVOTING) for both dense and sparse matrices
+// - NONLINEAR SYSTEM SOLVER (NEWTON-RAPHSON METHOD)
+// - ODE INTEGRATORS (FORWARD EULER, BACKWARD EULER, RUNGE-KUTTA 4)
+// Possibly a sparse matrix class later on
 
 vector forward_euler_step(vector (*vector_field)(const vector&), const vector& current_state, float dt );
-vector backward_euler_step(vector (*vector_field)(const vector&), const vector& current_state, float dt);
+
 }

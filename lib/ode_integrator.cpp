@@ -107,9 +107,9 @@ void ode_integrator::integrate() {
             if (std::string(method) == "forward_euler") {
                 current_state = numerics::forward_euler_step(system.get_field(), current_state, dt);
             }
-            else if (std::string(method) == "backward_euler") {
-                current_state = numerics::backward_euler_step(system.get_field(), current_state, dt);
-            }
+            // else if (std::string(method) == "backward_euler") {
+            //     current_state = numerics::backward_euler_step(system.get_field(), current_state, dt);
+            // }
             else {
                 throw std::invalid_argument("Unknown integration method.");
             }

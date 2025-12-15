@@ -15,9 +15,9 @@ int main(){
     int dimension = 2;
     vector initial_conditions(dimension, dimension, 1.0f); // initial condition x(0) = 1.0
     ode my_ode(dimension, initial_conditions, vector_field);
-    float time_step = 0.001f;
-    int n_frames = 1000;
-    int n_steps_per_frame = 100;
+    float time_step = 0.00001f;
+    int n_frames = 100000;
+    int n_steps_per_frame = 1000;
     std::string method = "forward_euler";
     ode_integrator integrator(my_ode, time_step, n_frames, n_steps_per_frame, method);
     integrator.integrate();
