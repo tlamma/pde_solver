@@ -18,6 +18,7 @@ class ode_integrator{
     ode_integrator(const ode& sys, float time_step, int n_frames, int n_steps_per_frame, std::string m);
     //METHODS
     vector* get_states() const;
+    void set_initial_conditions(const vector& initial_condition);
     void save_states_to_txt(const std::string& filename) const;
     void save_states_to_module(const std::string& module_name) const;
     void integrate();
