@@ -1,6 +1,7 @@
 #pragma once
 #include"finite_elements.h"
 #include"ode.h"
+#include"ode_integrator.h"
 
 class rde_1d{
     private:

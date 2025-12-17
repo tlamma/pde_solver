@@ -7,7 +7,8 @@ vector forward_euler_step(vector (*vector_field)(const vector&),const vector& cu
 class ode_integrator{
     private:
     ode system; //ODE system to integrate
-    matrix states; // SHOULD BE A MATRIX?
+    vector* states; // SHOULD BE A MATRIX?
+    vector initial_condition;
     float dt; // time step
     int n_frames; //number of frames
     int n_steps_per_frame; //number of time steps
@@ -15,10 +16,9 @@ class ode_integrator{
     
     public:
     //CONSTRUCTORS
-    ode_integrator(const ode& sys, float time_step, int n_frames, int n_steps_per_frame, std::string m);
+    ode_integrator(const ode& sys, const vector& initial_condition, float time_step, int n_frames, int n_steps_per_frame, std::string m);
     //METHODS
-    matrix get_states() const;
-    void set_initial_conditions(const vector& initial_condition);
+    vector* get_states() const;
     void save_states_to_txt(const std::string& filename) const;
     void save_states_to_module(const std::string& module_name) const;
     void integrate();

@@ -15,11 +15,13 @@ class matrix{
     matrix(int n,int m,float x); //n rows, m columns initialized to x
     matrix(const matrix& m); //copy constructor
     matrix(int n,int m, int c); //n rows, m columns, capacity c
+    matrix(const vector& v, int m); //construct matrix from vector by unwinding it into m columns
     //METHODS
     void append_row(const vector& new_row); //append row at the end
     void change_capacity(int c); //change capacity of the matrix
     int get_rows() const;
     int get_columns() const;
+    vector unwind() const; //convert matrix to vector by stacking columns
     //OPERATORS
     matrix& operator=(const matrix& m); //copy assignment
     vector& operator[](int index)const; //row access

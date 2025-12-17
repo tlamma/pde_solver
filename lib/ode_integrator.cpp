@@ -6,17 +6,17 @@
 #include<chrono>
 #include <iomanip>
 //CONSTRUCTORS
-ode_integrator::ode_integrator(const ode& sys,  float time_step, int n_frames, int n_steps_per_frame, std::string m):system(sys),dt(time_step),n_frames(n_frames),n_steps_per_frame(n_steps_per_frame),method(m){
-    states = matrix(sys.get_dimension(), n_frames, 0.0f);
+ode_integrator::ode_integrator(const ode& sys, const vector& initial_condition, float time_step, int n_frames, int n_steps_per_frame, std::string m):system(sys),initial_condition(initial_condition),dt(time_step),n_frames(n_frames),n_steps_per_frame(n_steps_per_frame),method(m){
+    states = new vector[n_frames];
+    for (int i = 0; i < n_frames; i++) {
+        states[i] = vector(sys.get_dimension());
+    }
+    states[0] = initial_condition;
 }
 
 //METHODS
-matrix ode_integrator::get_states() const{
+vector* ode_integrator::get_states() const{
     return states;
-}
-
-void ode_integrator::set_initial_conditions(const vector& initial_condition){
-    states[0] = initial_condition;
 }
 
 void ode_integrator::save_states_to_txt(const std::string& filename) const{

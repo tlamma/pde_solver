@@ -4,7 +4,7 @@ LDFLAGS =
 
 # Source files
 SRCS_MAIN = main.cpp
-SRCS_LIB  = lib/ode.cpp lib/vector.cpp lib/numerics.cpp lib/matrix.cpp lib/ode_integrator.cpp
+SRCS_LIB  = lib/ode.cpp lib/vector.cpp lib/numerics.cpp lib/matrix.cpp lib/ode_integrator.cpp lib/finite_elements.cpp lib/pde.cpp lib/pde_integrator.cpp
 
 SOURCES = $(SRCS_MAIN) $(SRCS_LIB)
 

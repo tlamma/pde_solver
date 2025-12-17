@@ -22,6 +22,21 @@ matrix::matrix(int n,int m,int c):rows(n),columns(m),capacity(c),ptr(new vector[
         ptr[i] = vector(m);
     }
 }
+matrix::matrix(const vector& v, int m):columns(m){
+    if(v.get_length() % m != 0){
+        throw std::invalid_argument("Vector length must be divisible by number of columns.");
+    }
+    rows = v.get_length() / m;
+    capacity = rows + std_flexibility;
+    ptr = new vector[capacity];
+    for(int i = 0;i < rows;i++){
+        ptr[i] = vector(m);
+        for(int j = 0;j < m;j++){
+            ptr[i][j] = v[i * m + j];   
+        }
+    }
+}
+
 //METHODS
 void matrix::append_row(const vector& new_row){
     if(new_row.get_length() != columns){
@@ -60,6 +75,16 @@ int matrix::get_rows() const{
 }
 int matrix::get_columns() const{
     return columns;
+}
+
+vector matrix::unwind() const{
+    vector result(rows * columns);
+    for(int j = 0;j < columns;j++){
+        for(int i = 0;i < rows;i++){
+            result.append(ptr[i][j]);
+        }
+    }
+    return result;
 }
 //OPERATORS
 matrix& matrix::operator=(const matrix& m) {
