@@ -10,9 +10,12 @@ class lattice_1d{
     std::string boundary;
 
     public:
+    lattice_1d(const lattice_1d& lattice);
     lattice_1d(int n_points, float len, std::string boundary);
     vector laplacian(const vector& v) const;
     float get_dx() const;
+    int get_num_points() const;
+    std::string get_boundary()const;
     // vector eigenmode(int n_mode) const;
 };
 

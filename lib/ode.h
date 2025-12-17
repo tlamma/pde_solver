@@ -8,6 +8,7 @@ class ode{
     public:
     //CONSTRUCTORS
     ode(int dim, vector (*f)(const vector&));
+    ode(const ode& equation);
     //METHODS
     int get_dimension() const;
     vector (*get_field() const)(const vector&);

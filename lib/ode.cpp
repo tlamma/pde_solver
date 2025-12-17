@@ -2,6 +2,7 @@
 
 //CONSTRUCTORS
 ode::ode(int n_eqs, vector (*f)(const vector&)):dimension(n_eqs),field(f){}
+ode::ode(const ode& equation):dimension(equation.dimension),field(equation.field) {}
 //METHODS
 int ode::get_dimension() const{
     return dimension;

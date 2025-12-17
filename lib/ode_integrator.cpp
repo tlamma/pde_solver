@@ -7,11 +7,11 @@
 #include <iomanip>
 //CONSTRUCTORS
 ode_integrator::ode_integrator(const ode& sys,  float time_step, int n_frames, int n_steps_per_frame, std::string m):system(sys),dt(time_step),n_frames(n_frames),n_steps_per_frame(n_steps_per_frame),method(m){
-    states = new vector[n_frames];
+    states = matrix(sys.get_dimension(), n_frames, 0.0f);
 }
 
 //METHODS
-vector* ode_integrator::get_states() const{
+matrix ode_integrator::get_states() const{
     return states;
 }
 
